@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaex.service.NoticeService;
@@ -16,6 +17,30 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	//수정
+	@PutMapping("/api/notice/modify")
+	public String noticeModify() {
+		System.out.println("NoticeController.noticeModify()");
+		
+		int count=noticeService.exeModify();
+		
+		String result=count+"건 수정 되었습니다.";
+		
+		return result;
+	}
+	
+	//등록
+	@PutMapping("/api/notice/write")
+	public String noticeWrite() {
+		System.out.println("NoticeController.noticeWrite()");
+		
+		int count=noticeService.exeWrite();
+		
+		String result=count+"건 등록 되었습니다.";
+		
+		return result;
+	}
 	
 	//삭제
 	@DeleteMapping("/api/notice/delete/{no}")

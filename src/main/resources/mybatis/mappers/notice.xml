@@ -3,6 +3,24 @@
 
 <mapper namespace="notice">
 
+	<!-- 수정 -->
+	<update id="update" parameterType="com.javaex.vo.NoticeVo">
+		<![CDATA[
+			update notice
+			set title=#{title},
+				content=#{content}
+			where no=#{no}
+		]]>
+	</update>
+
+	<!-- 등록 -->
+	<insert id="insert" parameterType="com.javaex.vo.NoticeVo">
+		<![CDATA[
+			insert into notice
+			values(null, #{name}, #{title}, #{content}, date)
+		]]>
+	</insert>
+
 	<!-- 삭제 -->
 	<delete id="delete" parameterType="int">
 		<![CDATA[
@@ -11,7 +29,7 @@
 		]]>
 	</delete>
 
-   <!-- 하나 불러오기 -->
+   <!-- 하나 불러오기/읽기, 수정 -->
    <select id="selectOne" parameterType="int" resultType="com.javaex.vo.NoticeVo">
       <![CDATA[ 
         select  no,

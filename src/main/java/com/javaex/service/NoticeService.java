@@ -14,6 +14,20 @@ public class NoticeService {
 	@Autowired
 	private NoticeDao noticeDao;
 	
+	//수정
+	public int exeModify() {
+		System.out.println("NoticeService.exeModify()");
+		
+		return noticeDao.updateNotice();
+	}
+	
+	//등록
+	public int exeWrite() {
+		System.out.println("NoticeService.exeWrite()");
+		
+		return noticeDao.insertNotice();
+	}
+	
 	//삭제
 	public int exeDelete(int no) {
 		System.out.println("NoticeService.exeDelete()");

@@ -14,6 +14,20 @@ public class NoticeDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//등록
+	public int updateNotice() {
+		System.out.println("NoticeDao.updateNotice()");
+		
+		return sqlSession.update("notice.update");
+	}
+	
+	//등록
+	public int insertNotice() {
+		System.out.println("NoticeDao.insertNotice()");
+		
+		return sqlSession.insert("notice.insert");
+	}
+	
 	//삭제
 	public int deleteNotice(int no) {
 		System.out.println("NoticeDao.deleteNotice()");
