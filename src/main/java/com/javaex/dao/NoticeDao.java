@@ -15,23 +15,27 @@ public class NoticeDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	// 글 전체 갯수 //리스트(검색X,페이징O)
-		public int selectTotalCnt() {
-			System.out.println("TboardDao.selectTotalCnt()");
+	//글 전체 갯수 //리스트(검색O, 페이징O)
+	public int selectTotalCnt(String keyword) {
+		System.out.println("PagingDao.selectTotalCnt()");
 
-			int totalCount = sqlSession.selectOne("notice.selectTotalCnt");
+		int totalCount = sqlSession.selectOne("notice.selectTotalCnt", keyword);
+		
+		System.out.println(totalCount);
 
-			return totalCount;
-		}
-	
-	// 리스트2(검색X,페이징O)
-		public List<NoticeVo> boardSelectList2(Map<String, Integer> limitMap) {
-			System.out.println("TboardDao.boardSelectList2()");
+		return totalCount;
+	}
 
-			List<NoticeVo> boardList = sqlSession.selectList("notice.selectList2", limitMap);
-			
-			return boardList;
-		}
+	//리스트2(검색O, 페이징O)
+	public List<NoticeVo> selectList2(Map<String, Object> limitMap) {
+		System.out.println("PagingDao.selectList2()");
+
+		List<NoticeVo> nList = sqlSession.selectList("notice.selectList2", limitMap);
+		
+		System.out.println(nList);
+
+		return nList;
+	}
 	
 	//수정
 	public int updateNotice(NoticeVo noticeVo) {
