@@ -12,7 +12,7 @@
 		<where>
 			<if test="keyword!=null">
 				<![CDATA[
-					title like concat ('%"',#{keyword},'%')
+					title like concat ('%',#{keyword},'%')
 					or content like concat ('%',#{keyword},'%')
 				]]>
 			</if>
@@ -28,17 +28,15 @@
 			        content,
 			        reg_date regDate
 			from notice
-			order by no desc
      	]]>
-     	<where>
 			<if test="keyword!=null">
 				<![CDATA[
-					title like concat ('%"',#{keyword},'%')
+					where title like concat ('%"',#{keyword},'%')
 					or content like concat ('%',#{keyword},'%')
 				]]>
 			</if>
-		</where>
 		<![CDATA[ 
+			order by no desc
 			limit #{startRowNo}, #{listCnt}
      	]]>
 	</select>

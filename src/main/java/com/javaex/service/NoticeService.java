@@ -80,6 +80,7 @@ public class NoticeService {
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("prev", prev);
 		pMap.put("next", next);
+		pMap.put("totalCnt", totalCnt);
 		
 		System.out.println(pMap);
 		
