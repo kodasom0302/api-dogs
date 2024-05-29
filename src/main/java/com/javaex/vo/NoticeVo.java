@@ -7,15 +7,17 @@ public class NoticeVo {
 	private String title;
 	private String content;
 	private String regDate;
+	private int total;	//총 개수
 	
 	public NoticeVo() {
 	}
-	public NoticeVo(int no, String name, String title, String content, String regDate) {
+	public NoticeVo(int no, String name, String title, String content, String regDate, int total) {
 		this.no = no;
 		this.name = name;
 		this.title = title;
 		this.content = content;
 		this.regDate = regDate;
+		this.total = total;
 	}
 	
 	public int getNo() {
@@ -48,11 +50,17 @@ public class NoticeVo {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
 	
 	@Override
 	public String toString() {
 		return "NoticeVo [no=" + no + ", name=" + name + ", title=" + title + ", content=" + content + ", regDate="
-				+ regDate + "]";
+				+ regDate + ", total=" + total + "]";
 	}
 
 }
